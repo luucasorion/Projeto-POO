@@ -3,4 +3,4 @@ class my_class(object):
 
 print("oi aaaaa")
 print("AAAA asdwdasd")
-
+print("OI MIGOOOO")
