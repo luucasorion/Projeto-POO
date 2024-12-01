@@ -25,20 +25,20 @@ class Main:
                     filme = int(input("Qual filme voce quer assistir?\n"))
                     tipo = int(input("""Escolha o tipo de sala que voce prefere: 
                     1. Sala Comum 
-                    2. Sala VIP - Com cadeiras reclináveis e mais conforto 
+                    2. Sala VIP - Com cadeiras reclinaveis e mais conforto 
                     3. Sala XD - Experiencia sonora aprimorada 
-                    4. Sala 3D - Para uma imersão completa
+                    4. Sala 3D - Para uma imersao completa
                     Digite sua escolha: """))
 
                     if tipo < 1 or tipo > 4:                    
-                        print("Essa sala não existe!")
+                        print("Essa sala nao existe!")
                         continue
                     
                     cliente.comprar(filme, tipo)
                 
                 case '2':
                    
-                    print("Opção de mudar assento ainda não implementada.")
+                    print("Opcao de mudar assento ainda nao implementada.")
                 
                 case '3':
                     sala.imprimir_filmes() 
@@ -53,14 +53,14 @@ class Main:
                     if 1 <= tipo <= 4:
                         cliente.cancela_compra(filme, tipo)
                     else:
-                        print("Essa sala não existe")
+                        print("Essa sala nao existe")
                 
                 case '0':
                     print("Saindo do sistema...")
                     break 
 
                 case _:
-                    print("Opção inválida! Tente novamente.")
+                    print("Opcao invalida! Tente novamente.")
 
 if __name__ == "__main__":
     meu_programa = Main() 
