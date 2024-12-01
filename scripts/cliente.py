@@ -4,8 +4,13 @@ from Salavip import SalaVIP
 from Sala3d import Sala3D
 from Sala import Sala
 
+sala = Sala()
+salaVIP = SalaVIP()
+sala3D = Sala3D()
+salaXD = SalaXD()
 
-class cliente():
+
+class Cliente():
     
     def __init__(self,nome, idade):
         self.nome = nome
@@ -14,46 +19,35 @@ class cliente():
     def comprar(filme,tipo):
         match tipo:
             case 1:
-                Sala.compra
-        
-            case 2:
-                SalaVIP.compra
-      
+                sala.ImprimirSala(filme)
+                assento = (list(map(int,input("escolha seu assento: ").split(" "))))
+                sala.Adicionar(tipo, filme)   
+            case 2:         
+                salaVIP.ImprimirSala(filme)
+                assento = (list(map(int,input("escolha seu assento: ").split(" "))))
+                salaVIP.Adicionar(tipo, filme)
             case 3:
-               SalaXD.compra
+                salaXD.ImprimirSala(filme)
+                assento = (list(map(int,input("escolha seu assento: ").split(" "))))
+                salaXD.Adicionar(tipo, filme)
             case 3:
-                Sala3D.compra
+                sala3D.ImprimirSala(filme)
+                assento = (list(map(int,input("escolha seu assento: ").split(" "))))
+                sala3D.Adicionar(tipo, filme)
+
     
     def cancela_compra(filme,tipo):
         match tipo:
             case 1:
-                Sala.exclui
+                sala.Excluir(tipo, filme)
             case 2:
-                SalaVIP.exclui
+                salaVIP.Excluir(tipo, filme)
             case 3:
-                SalaXD.exclui
+                salaXD.Excluir(tipo, filme)
             case 4:
-                Sala3D.exclui
+                sala3D.Excluir(tipo, filme)
 
-for x in range(3):
-    funcao = input("o que voce quer fazer? del(d)com(c)")
-    if funcao== "c":
-        print(list(enumerate(Sala.filmes)))
-        filme = int(input("qual filme voce quer:\n"))
-        tipo = int(input("que tipo de sala voce quer:\n 1 comumu\n 2 vip\n 3 xd\n 4 3d"))
-        if 1<=tipo<=4:
-            cliente.comprar(filme,tipo)
-        else:
-            print("essa sala nao existe")
-    else:
-        print(list(enumerate(Sala.filmes)))
-        filme = int(input("qual filme voce escolheu:\n"))
-        tipo = int(input("que tipo de sala voce escolheu?\n 1 comumu\n 2 vip\n 3 xd\n 4 3d"))
-        if 1<=tipo<=4:
-            cliente.cancela_compra(filme,tipo)
-        else:
-            print("essa sala nao existe")
-    
+
 
 
 

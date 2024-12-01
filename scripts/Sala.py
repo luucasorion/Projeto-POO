@@ -1,7 +1,4 @@
-
 #barbara
-from _typeshed import Self
-
 
 class Sala:
     def __init__(self):
@@ -9,8 +6,8 @@ class Sala:
         self.salas = [[[0] * 4 for _ in range(4)] for _ in range(3)]
         self.preco = 30
 
-    def ImprimirSala( self,coordenadas):
-        for matriz in self.salas[coordenadas]:
+    def ImprimirSala(self,filme):
+        for matriz in self.salas[filme]:
             print(matriz)
 
     def OcuparAssento(self, coordenadas, assento):
@@ -28,14 +25,18 @@ class Sala:
             print("Assento não está ocupado!")
       
         
-    def adiciona(self, tipo, filme):
-        self.imprimirSala(filme)
-        assento = (list(map(int,input("escolha seu assento: ").split(" "))))
-        self.escolherAssento(filme,assento)
-        self.imprimirSala(filme)
+    def Adicionar(self, tipo, filme, assento):
+        self.OcuparAssento(filme,assento)
+        self.ImprimirSala(filme)
         
-    def exclui(self, tipo, filme):
-        self.imprimirSala(filme)
+    def Excluir(self, tipo, filme):
+        self.ImprimirSala(filme)
         assento = (list(map(int,input("escolha seu assento a ser deletado: ").split(" "))))
-        self.deleta_assento(filme,assento)
-        self.imprimirSala(filme)
+        self.Deletar_assento(filme,assento)
+        self.ImprimirSala(filme)
+
+    def ImprimirFilmes(self):
+        for x in range(len(self.filmes)):
+            print(f"{x} - {self.filmes[x]}")
+
+    def Atualizar(self)
