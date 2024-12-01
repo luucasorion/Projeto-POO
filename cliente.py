@@ -1,50 +1,85 @@
-import copy
-class sala():
-    def __init__(self, filmes, salas, preco):
-        self.filmes = ["filme1","filme2","filme3"]
-        self.salas = [[[0]*4 for _ in range(4)]for _ in range(3)]
-        self.preco= 30
-    def imprimirSala(self,coordenadas):
-        for matriz in self.salas[coordenadas]:
-            print(matriz)
-    def escolherAssento(self,coordenadas, assento):
-        self.salas[coordenadas][assento[0][assento[1]]]= 1
+#barbara e lucas
+from Sala import Sala
+from Vip import VIP
+from sala3d import Sala_3d
+from xd import Xd
+sala= Sala()
+Vip = VIP()
+sala_3d= Sala_3d()
+sala_xd= Xd()
+
+class cliente():
+    def __init__(self,nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def comprar(filme,tipo):
+        if (tipo== 1):
+            sala.imprimirSala(filme)
+            assento = (list(map(int,input("escolha seu assento: ").split(" "))))
+            sala.escolherAssento(filme,assento)
+            sala.imprimirSala(filme)
+        if (tipo== 2):
+            Vip.imprimirSala(filme)
+            assento = (list(map(int,input("escolha seu assento: ").split(" "))))
+            Vip.escolherAssento(filme,assento)
+            Vip.imprimirSala(filme)
+        if(tipo==3):
+            sala_xd.imprimirSala(filme)
+            assento = (list(map(int,input("escolha seu assento: ").split(" "))))
+            sala_xd.escolherAssento(filme,assento)
+            sala_xd.imprimirSala(filme)
+        if tipo == 4:
+            sala_3d.imprimirSala(filme)
+            assento = (list(map(int,input("escolha seu assento: ").split(" "))))
+            sala_3d.escolherAssento(filme,assento)
+            sala_3d.imprimirSala(filme)
+    
+    def cancela_compra(filme,tipo):
+        if (tipo== 1):
+            sala.imprimirSala(filme)
+            assento = (list(map(int,input("escolha seu assento a ser deletado: ").split(" "))))
+            sala.deleta_assento(filme,assento)
+            sala.imprimirSala(filme)
+        if (tipo== 2):
+            Vip.imprimirSala(filme)
+            assento = (list(map(int,input("escolha seu assento a ser deletado: ").split(" "))))
+            Vip.deleta_assento(filme,assento)
+            Vip.imprimirSala(filme)
+        if(tipo==3):
+            sala_xd.imprimirSala(filme)
+            assento = (list(map(int,input("escolha seu assento a ser deletado: ").split(" "))))
+            sala_xd.deleta_assento(filme,assento)
+            sala_xd.imprimirSala(filme)
+        if tipo == 4:
+            sala_3d.imprimirSala(filme)
+            assento = (list(map(int,input("escolha seu assento a ser deletado: ").split(" "))))
+            sala_3d.deleta_assento(filme,assento)
+            sala_3d.imprimirSala(filme)
+
+for x in range(3):
+    funcao = input("o que voce quer fazer? del(d)com(c)")
+    if funcao== "c":
+        print(list(enumerate(sala.filmes)))
+        filme = int(input("qual filme voce quer:\n"))
+        tipo = int(input("que tipo de sala voce quer:\n 1 comumu\n 2 vip\n 3 xd\n 4 3d"))
+        if 1<=tipo<=4:
+            cliente.comprar(filme,tipo)
+        else:
+            print("essa sala nao existe")
+    else:
+        print(list(enumerate(sala.filmes)))
+        filme = int(input("qual filme voce escolheu:\n"))
+        tipo = int(input("que tipo de sala voce escolheu?\n 1 comumu\n 2 vip\n 3 xd\n 4 3d"))
+        if 1<=tipo<=4:
+            cliente.cancela_compra(filme,tipo)
+        else:
+            print("essa sala nao existe")
+    
 
 
-class vip():
-    def __init__(self, salas):
-        salas_vip = copy.deepcopy(salas)
-        super().__init__(salas_vip)
-        self.preco_vip=self.preco
-    def acresimo(self):
-        self.preco_vip*=1,45
 
-
-class sala3d():
-     def __init__(self, salas):
-        salas_vip = copy.deepcopy(salas)
-        super().__init__(salas_vip)
-        self.preco_3d=self.preco
-   
-     def acresimo(self):
-        self.preco_3d*=1,30
-
-class sala_xd():
-    def __init__(self, salas):
-        salas_vip = copy.deepcopy(salas)
-        super().__init__(salas_vip)
-        self.preco_xd=self.preco
-   
-    def acresimo(self):
-        self.preco_xd*=1,40
-
-class cliente ():
-    def __init__(self, nome, idade):
-        self.nome =nome
-        self.idade= idade
-    def imprimirSalas(self,tipoDeSala):
-      x = vip
-      x.im          
-         
-
+             
+             
         
+       
