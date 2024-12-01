@@ -20,23 +20,20 @@ class Sala:
     def Deletar_assento(self, coordenadas, assento):
         if self.salas[coordenadas][assento[0]][assento[1]] == 1:
             self.salas[coordenadas][assento[0]][assento[1]] = 0
-            print("compra cancelada com sucesso!")
+           
         else:
             print("Assento não está ocupado!")
       
         
-    def Adicionar(self, tipo, filme, assento):
-        self.OcuparAssento(filme,assento)
-        self.ImprimirSala(filme)
+    
         
-    def Excluir(self, tipo, filme):
-        self.ImprimirSala(filme)
-        assento = (list(map(int,input("escolha seu assento a ser deletado: ").split(" "))))
-        self.Deletar_assento(filme,assento)
-        self.ImprimirSala(filme)
+   
 
     def ImprimirFilmes(self):
         for x in range(len(self.filmes)):
             print(f"{x} - {self.filmes[x]}")
 
-    def Atualizar(self)
+    def Atualizar(self, filme, assento, assentoNovo):
+        self.Deletar_assento(filme, assento)
+        self.OcuparAssento(filme, assentoNovo)
+        
